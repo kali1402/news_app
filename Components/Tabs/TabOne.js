@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Content, List } from 'native-base';
+import { View, Text, ActivityIndicator } from 'react-native';
 import { getArticles } from '../../api/news';
 import DataItem from '../DataItem';
 

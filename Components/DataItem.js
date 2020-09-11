@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+// 하단에서 view 를 사용하고 있는데 안불러옴.
+import { View } from 'react-native';
 import { ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
 import moment from 'moment';
 
 function DataItem({ article }) {
-    useEffect(() => {
-        async function get_articles() {
-            setArticles(await getArticles());
-            setIsLoading(false);
-        }
 
-        get_articles();
-    }, []);
     return (
         <ListItem thumbnail>
             <Left>
