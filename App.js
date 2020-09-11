@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Text } from "react-native";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
-import TabScreen from "./components/TabScreen";
+import TabScreen from "./Components/TabScreen";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);

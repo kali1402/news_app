@@ -1,18 +1,8 @@
-import React, { useEffect } from "react";
-import TabOne from "./Tabs/TabOne";
+import React from "react";
+import { Text } from "react-native";
 function TabTwo() {
-    useEffect(() => {
-        const loadFont = async () => {
-            await Font.loadAsync({
-                Roboto: require("native-base/Fonts/Roboto.ttf"),
-                Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-                ...Ionicons.font,
-            });
-        };
-        loadFont();
-    }, []);
     return (
-        <TabOne />
+        <Text>?</Text>
     );
 }
 export default TabTwo;

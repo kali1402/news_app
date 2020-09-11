@@ -4,9 +4,18 @@ import { getArticles } from '../../api/news';
 import DataItem from '../DataItem';
 
 function TabOne() {
-
     const [isLoading, setIsLoading] = useState(true);
     const [articles, setArticles] = useState([]);
+
+    useEffect(() => {
+        async function get_articles() {
+            setArticles(await getArticles());
+            setIsLoading(false);
+        }
+
+        get_articles();
+    }, []);
+
     const pageView = isLoading ? (
         <View>
             <ActivityIndicator animating={isLoading} size="large" />
@@ -21,20 +30,9 @@ function TabOne() {
             />
         );
 
-    useEffect(() => {
-        async function get_articles() {
-            setArticles(await getArticles());
-            setIsLoading(false);
-        }
-
-        get_articles();
-    }, []);
-
     return (
         <Container>
-            <Content>
-                {pageView}
-            </Content>
+            <Content>{pageView}</Content>
         </Container>
     );
 };
