@@ -13,7 +13,7 @@ function TabScreen() {
                 </Body>
             </Header>
             <Tabs>
-                <Tab heading="general">
+                <Tab heading="health">
                     <Tab1 />
                 </Tab>
                 <Tab heading="sports">
