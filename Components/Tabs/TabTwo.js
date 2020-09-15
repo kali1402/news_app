@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, ActivityIndicator } from "react-native";
 import { Container, Content, List } from 'native-base';
-import { getArticles_sports } from '../../api/news';
+import { getArticles } from '../../api/news';
 import DataItem from '../DataItem';
 import ModalView from '../ModalView';
 
@@ -14,7 +14,7 @@ function TabOne() {
 
     useEffect(() => {
         async function get_articles() {
-            setArticles(await getArticles_sports());
+            setArticles(await getArticles("sports"));
             setIsLoading(false);
         }
 
