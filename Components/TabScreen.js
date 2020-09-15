@@ -13,13 +13,13 @@ function TabScreen() {
                 </Body>
             </Header>
             <Tabs>
-                <Tab heading="Tab1">
+                <Tab heading="general">
                     <Tab1 />
                 </Tab>
-                <Tab heading="Tab2">
+                <Tab heading="sports">
                     <Tab2 />
                 </Tab>
-                <Tab heading="Tab3">
+                <Tab heading="entertainment">
                     <Tab3 />
                 </Tab>
             </Tabs>
