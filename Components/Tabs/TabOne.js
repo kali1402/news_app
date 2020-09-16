@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, ActivityIndicator } from "react-native";
 import { Container, Content, List } from 'native-base';
-import { getArticles } from '../../api/news';
 import DataItem from '../DataItem';
 import ModalView from '../ModalView';
+import { useDispatch, useSelector } from "react-redux";
 
 function TabOne() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [articles, setArticles] = useState([]);
-
     const [modalView, setModalView] = useState(false);
     const [modalArticleData, setModalArticleData] = useState({});
 
-    useEffect(() => {
-        async function get_articles() {
-            setArticles(await getArticles("health"));
-            setIsLoading(false);
-        }
+    const dispatch = useDispatch();
 
-        get_articles();
+    const { isLoading, articles } = useSelector((state) => {
+        return {
+            isLoading: state.isLoading,
+            articles: state.health,
+        };
+    });
+
+    useEffect(() => {
+        dispatch({ type: "CLICK", category: "health" });
     }, []);
 
     const viewModal = (articleData) => {
