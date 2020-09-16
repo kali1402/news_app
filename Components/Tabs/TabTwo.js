@@ -20,7 +20,7 @@ function TabTwo() {
 
     useEffect(() => {
         dispatch({ type: "CLICK", category: "sports" });
-    }, []);
+    }, [dispatch]);
 
     const viewModal = (articleData) => {
         setModalView(true);
