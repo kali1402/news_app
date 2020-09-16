@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, ActivityIndicator } from "react-native";
 import { Container, Content, List } from 'native-base';
-import { getArticles } from '../../api/news';
 import DataItem from '../DataItem';
 import ModalView from '../ModalView';
+import { useDispatch, useSelector } from "react-redux";
 
-function TabOne() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [articles, setArticles] = useState([]);
-
+function TabTwo() {
     const [modalView, setModalView] = useState(false);
     const [modalArticleData, setModalArticleData] = useState({});
 
-    useEffect(() => {
-        async function get_articles() {
-            setArticles(await getArticles("sports"));
-            setIsLoading(false);
-        }
+    const dispatch = useDispatch();
 
-        get_articles();
+    const { isLoading, articles } = useSelector((state) => {
+        return {
+            isLoading: state.isLoading,
+            articles: state.sports,
+        };
+    });
+
+    useEffect(() => {
+        dispatch({ type: "CLICK", category: "sports" });
     }, []);
 
     const viewModal = (articleData) => {
@@ -59,4 +60,4 @@ function TabOne() {
     );
 };
 
-export default TabOne;
+export default TabTwo;

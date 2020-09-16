@@ -3,6 +3,8 @@ import { Text } from "react-native";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import TabScreen from "./Components/TabScreen";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +22,11 @@ export default function App() {
   }, []);
 
   if (!isLoading) {
-    return <TabScreen />;
+    return (
+      <Provider store={store}>
+        <TabScreen />
+      </Provider>
+    );
   } else {
     return <Text>error</Text>;
   }
