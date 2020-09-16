@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Text } from "react-native";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
-import TabScreen from "./Components/TabScreen";
+import Login from "./pages/Login";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
@@ -24,7 +24,7 @@ export default function App() {
   if (!isLoading) {
     return (
       <Provider store={store}>
-        <TabScreen />
+        <Login />
       </Provider>
     );
   } else {
