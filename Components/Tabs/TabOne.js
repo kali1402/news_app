@@ -20,7 +20,7 @@ function TabOne() {
 
     useEffect(() => {
         dispatch({ type: "CLICK", category: "health" });
-    }, []);
+    }, [dispatch]);
 
     const viewModal = (articleData) => {
         setModalView(true);

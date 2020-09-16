@@ -20,7 +20,7 @@ function TabThree() {
 
     useEffect(() => {
         dispatch({ type: "CLICK", category: "entertainment" });
-    }, []);
+    }, [dispatch]);
 
     const viewModal = (articleData) => {
         setModalView(true);
