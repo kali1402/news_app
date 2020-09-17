@@ -16,7 +16,7 @@ function Login() {
 
         if (userInfo.email && userInfo.password) {
             const users = await userApi.getUsers();
-            users.filter(user => {
+            const matchData = users.filter(user => {
                 return user.email === userInfo.email && user.password === userInfo.password
             })
             if (matchData.length) {

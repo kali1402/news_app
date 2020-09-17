@@ -1,10 +1,8 @@
 import axios from 'axios';
-
+import * as Device from 'expo-device';
+const domain = Device.isDevice ? 'localhost' : '10.0.2.2';
+// 사용자 정보 조회
 export const getUsers = async () => {
-    try {
-        const users = await axios.get('http://10.0.0.2:4000/users');
-        return users.data;
-    } catch (err) {
-        throw err;
-    }
+    const res = await axios.get(`http://${domain}:4000/users`);
+    return res.data;
 };
