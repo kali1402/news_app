@@ -6,3 +6,11 @@ export const getUsers = async () => {
     const res = await axios.get(`http://${domain}:4000/users`);
     return res.data;
 };
+
+export const createUser = async (userInfo) => {
+    try {
+        await axios.post(`http://${domain}:4000/users`, userInfo);
+    } catch (error) {
+        throw error;
+    }
+};
