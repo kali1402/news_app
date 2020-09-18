@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
 import * as userApi from '../api/users';
+import { Actions } from 'react-native-router-flux';
 
 function Login() {
 
@@ -20,12 +21,17 @@ function Login() {
                 return user.email === userInfo.email && user.password === userInfo.password
             })
             if (matchData.length) {
-                Alert.alert("성공, 로그인 성공")
+                Alert.alert("성공, 로그인 성공");
+                Actions.newsList();
             } else {
-                Alert.alert("실패, 로그인 실패")
+                Alert.alert("실패, 로그인 실패");
             }
         }
     }
+
+    const moveSignup = () => {
+        Actions.register();
+    };
 
     return (
         <>
@@ -55,7 +61,7 @@ function Login() {
                     placeholder="Password"
                     placeholderTextColor="#fff"
                     underlineColorAndroid="rgba(0,0,0,0)"
-                    keyboardType="email-address"
+                    keyboardType="Password"
                     onChangeText={(text) => setUserInfo({ ...userInfo, password: text })}
                 />
                 {isClick && userInfo.password == "" ?
@@ -63,6 +69,12 @@ function Login() {
                     null}
                 <TouchableOpacity style={styles.button} onPress={LoginAction}>
                     <Text style={styles.buttontext}>Login</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.bottomtext}>
+                <Text>Don't have account yet?</Text>
+                <TouchableOpacity onPress={moveSignup}>
+                    <Text style={{ paddingLeft: 10 }}>SignUp</Text>
                 </TouchableOpacity>
             </View>
         </>
@@ -108,6 +120,12 @@ const styles = StyleSheet.create({
     warning: {
         color: "red",
         padding: 5
+    },
+    bottomtext: {
+        flexGrow: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 })
 

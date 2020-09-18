@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Login from "./pages/Login";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import Routes from './Routes'
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +25,7 @@ export default function App() {
   if (!isLoading) {
     return (
       <Provider store={store}>
-        <Login />
+        <Routes />
       </Provider>
     );
   } else {
